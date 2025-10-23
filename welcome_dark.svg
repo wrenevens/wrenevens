@@ -1,8 +1,7 @@
-<svg fill="none" viewBox="0 0 600 230" width="600" height="230" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 600 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
   <foreignObject width="100%" height="100%">
     <div xmlns="http://www.w3.org/1999/xhtml">
       <style>
-        /* === Animations omitted for brevity (same as original) === */
         @keyframes typing {0%{width:0;}20%{width:24ch;}100%{width:24ch;}}
         @keyframes blink{50%{border-color:transparent;}}
         @keyframes wave{0%{transform:rotate(0deg);}10%{transform:rotate(14deg);}20%{transform:rotate(-8deg);}30%{transform:rotate(14deg);}40%{transform:rotate(-4deg);}50%{transform:rotate(10deg);}60%,100%{transform:rotate(0deg);}}
@@ -10,24 +9,35 @@
         @keyframes bubble{0%,100%{transform:translateY(0)scale(1);}30%{transform:translateY(-10px)scale(1.35);}40%{transform:translateY(0)scale(1);}}
         @keyframes showup{0%,100%{opacity:0;transform:translateY(0);}25%{opacity:1;transform:translateY(-4px);}40%{opacity:0;transform:translateY(0);}}
 
-        .container {
-          display:flex;flex-direction:column;align-items:center;justify-content:center;
-          height:230px;background:white;color:#e6eef8;
-          font-family:"Courier New",monospace;gap:1.2rem;
+        @media (max-width: 400px) {
+          .mobile-content { display: block; }
+          .desktop-content { display: none; }
         }
 
-        .animated-content {
+        @media (min-width: 401px) {
+          .mobile-content { display: none; }
+          .desktop-content { display: block; }
+        }
+
+        .mobile-content, .desktop-content {
+          font-family: "Courier New", monospace;
+          color: #e6eef8;
           display: flex;
           flex-direction: column;
           align-items: center;
-          gap: 1.2rem;
+          justify-content: center;
+          height: 230px;
+          background: white;
         }
 
-        .static-content {
-          display: none;
+        .mobile-content {
+          font-size: 4vw;
           text-align: center;
-          font-size: 1.2em;
-          line-height: 1.5;
+          gap: 1rem;
+        }
+
+        .desktop-content {
+          gap: 1.2rem;
         }
 
         .typing {
@@ -45,37 +55,22 @@
         .e1{animation-delay:0s;}.e2{animation-delay:1.2s;}.e3{animation-delay:2.4s;}
         .sub{font-size:16px;opacity:0;animation:showup 4s cubic-bezier(.2,.9,.2,1) infinite;}
         .sub.e1{animation-delay:0s;}.sub.e2{animation-delay:1.2s;}.sub.e3{animation-delay:2.4s;}
-
-        /* Mobile styles */
-        @media (max-width: 400px) {
-          .animated-content {
-            display: none;
-          }
-          
-          .static-content {
-            display: block;
-          }
-        }
       </style>
 
-      <div class="container">
-        <!-- Animated content for desktop -->
-        <div class="animated-content">
-          <div class="typing">Welcome to my profile <span class="hi">👋</span></div>
-          <div class="caption">Here are some of the things I am currently focusing on:</div>
-          <div class="emoji-row">
-            <div class="pair"><span class="emoji e1">📚</span><div class="sub e1">Learning</div></div>
-            <div class="pair"><span class="emoji e2">👨‍💻</span><div class="sub e2">Working</div></div>
-            <div class="pair"><span class="emoji e3">🤖</span><div class="sub e3">Dreaming</div></div>
-          </div>
+      <div class="desktop-content">
+        <div class="typing">Welcome to my profile <span class="hi">👋</span></div>
+        <div class="caption">Here are some of the things I am currently focusing on:</div>
+        <div class="emoji-row">
+          <div class="pair"><span class="emoji e1">📚</span><div class="sub e1">Learning</div></div>
+          <div class="pair"><span class="emoji e2">👨‍💻</span><div class="sub e2">Working</div></div>
+          <div class="pair"><span class="emoji e3">🤖</span><div class="sub e3">Dreaming</div></div>
         </div>
+      </div>
 
-        <!-- Static content for mobile -->
-        <div class="static-content">
-          <div>Welcome to my profile 👋</div>
-          <div style="margin-top: 20px;">Here are some of the things I am currently focusing on:</div>
-          <div style="margin-top: 20px;">📚 Learning | 👨‍💻 Working | 🤖 Dreaming</div>
-        </div>
+      <div class="mobile-content">
+        <div>Welcome to my profile 👋</div>
+        <div>Here are some of the things I am currently focusing on:</div>
+        <div>📚 Learning | 👨‍💻 Working | 🤖 Dreaming</div>
       </div>
     </div>
   </foreignObject>
