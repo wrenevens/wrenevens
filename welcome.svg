@@ -1,43 +1,42 @@
-<svg fill="none" viewBox="0 0 600 100" width="600" height="100" xmlns="http://www.w3.org/2000/svg">
+<svg fill="none" viewBox="0 0 600 230" width="600" height="230" xmlns="http://www.w3.org/2000/svg">
   <foreignObject width="100%" height="100%">
     <div xmlns="http://www.w3.org/1999/xhtml">
       <style>
+        /* === Typing Welcome === */
         @keyframes typing {
-          0% { width: 0 }
-          20% { width: 24ch } /* typing phase */
-          100% { width: 24ch } /* hold for pause */
+          0% { width: 0; }
+          20% { width: 24ch; }
+          100% { width: 24ch; }
         }
-
-        @keyframes blink {
-          50% { border-color: transparent }
-        }
-
+        @keyframes blink { 50% { border-color: transparent; } }
         @keyframes wave {
-          0% { transform: rotate(0deg) }
-          10% { transform: rotate(14deg) }
-          20% { transform: rotate(-8deg) }
-          30% { transform: rotate(14deg) }
-          40% { transform: rotate(-4deg) }
-          50% { transform: rotate(10deg) }
-          60% { transform: rotate(0deg) }
-          100% { transform: rotate(0deg) }
+          0% { transform: rotate(0deg); }
+          10% { transform: rotate(14deg); }
+          20% { transform: rotate(-8deg); }
+          30% { transform: rotate(14deg); }
+          40% { transform: rotate(-4deg); }
+          50% { transform: rotate(10deg); }
+          60%, 100% { transform: rotate(0deg); }
         }
 
-        .body {
+        /* === Caption and Emojis === */
+        .container {
           display: flex;
+          flex-direction: column;
           align-items: center;
           justify-content: center;
-          height: 100px;
+          height: 230px;
           background: transparent;
           color: #e6eef8;
           font-family: "Courier New", monospace;
+          gap: 1.2rem;
         }
 
         .typing {
           overflow: hidden;
           white-space: nowrap;
-          border-right: 3px solid #e6eef8;
-          font-size: 2em;
+          border-right: 3px solid currentColor;
+          font-size: 1.8em;
           animation:
             typing 4s steps(24, end) infinite alternate,
             blink .7s step-end infinite;
@@ -49,20 +48,100 @@
           animation: wave 1.5s ease-in-out infinite;
         }
 
-        @media (prefers-color-scheme: light) {
-          .body {
-            color: #0f172a;
-          }
+        /* === Caption animation === */
+        :root {
+          --speed: 6s;
+          --gap: 1.6s;
+        }
 
-          .typing {
-            border-right: 3px solid #0f172a;
-          }
+        .caption {
+          font-size: 0.9em;
+          letter-spacing: 0.02em;
+          animation: captionPulse var(--speed) cubic-bezier(.1, 1, .1, 1) infinite;
+        }
+
+        @keyframes captionPulse {
+          0%, 100%{ transform: translateY(0); opacity: 1; }
+          30%, 80%{ transform: translateY(-12px); opacity: 0.9}
+        }
+
+        /* === Emoji bubble animation === */
+        .pair {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 8px;
+        }
+
+        .emoji-row {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 3rem;
+        }
+
+        .emoji {
+          font-size: 42px;
+          display: inline-block;
+          transform-origin: center;
+          animation: bubble var(--speed) cubic-bezier(.2,.9,.2,1) infinite;
+          line-height: 1;
+        }
+
+        .e1 { animation-delay: 0s; }
+        .e2 { animation-delay: calc(var(--gap)); }
+        .e3 { animation-delay: calc(var(--gap) * 2); }
+
+        @keyframes bubble {
+          0%, 100% { transform: translateY(0) scale(1); }
+          30% { transform: translateY(-10px) scale(1.35); }
+          40% { transform: translateY(0) scale(1); }
+        }
+
+        .sub {
+          font-size: 16px;
+          opacity: 0;
+          animation: showup var(--speed) cubic-bezier(.2,.9,.2,1) infinite;
+        }
+
+        .sub.e1 { animation-delay: 0s; }
+        .sub.e2 { animation-delay: calc(var(--gap)); }
+        .sub.e3 { animation-delay: calc(var(--gap) * 2); }
+
+        @keyframes showup {
+          0%, 100% { opacity: 0; transform: translateY(0); }
+          25% { opacity: 1; transform: translateY(-4px); }
+          40% { opacity: 0; transform: translateY(0); }
+        }
+
+        @media (prefers-color-scheme: light) {
+          .container { color: #0f172a; }
+          .typing { border-right: 3px solid #0f172a; }
         }
       </style>
 
-      <div class="body">
+      <div class="container">
         <div class="typing">
           Welcome to my profile <span class="hi">👋</span>
+        </div>
+
+        <div class="caption">
+          Here are some of the things I am currently focusing on:
+        </div>
+
+        <div class="emoji-row">
+          <div class="pair">
+            <span class="emoji e1">📚</span>
+            <div class="sub e1">Learning</div>
+          </div>
+          <div class="pair">
+            <span class="emoji e2">👨‍💻</span>
+            <div class="sub e2">Working</div>
+          </div>
+          <div class="pair">
+            <span class="emoji e3">🤖</span>
+            <div class="sub e3">Dreaming</div>
+          </div>
         </div>
       </div>
     </div>
