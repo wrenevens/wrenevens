@@ -27,6 +27,7 @@
           align-items: center;
           justify-content: center;
           height: 230px;
+          background : transparent;
         }
 
         .mobile-content {
@@ -74,4 +75,3 @@
     </div>
   </foreignObject>
 </svg>
-
