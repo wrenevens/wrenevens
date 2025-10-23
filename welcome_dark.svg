@@ -90,7 +90,7 @@
     }
     
     @keyframes sparkle {
-      0%, 100% {transform: translateY(0px) opacity : 1}
+      0%, 100% {transform: translateY(0px); opacity : 1}
       50% {transform: translateY(-4px); opacity: 0.5 }
       90% {transform: translateY(0px); opacity : 0}
     }
