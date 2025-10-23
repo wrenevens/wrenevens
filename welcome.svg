@@ -84,7 +84,7 @@
           font-size: 42px;
           display: inline-block;
           transform-origin: center;
-          animation: bubble var(--speed) cubic-bezier(.2,.9,.2,1) infinite;
+          animation: bubble var(--speed) cubic-bezier(.2,1,.2,1) infinite;
           line-height: 1;
         }
 
