@@ -26,7 +26,7 @@
       
       .wave-hand {
         animation: wave 3.2s cubic-bezier(.1,1,.1,1) infinite;
-        transform-origin: top right 10px;
+        transform-origin: 90% 50%;
       }
       
       .wave-hand text {
