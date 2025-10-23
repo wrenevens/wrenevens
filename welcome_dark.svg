@@ -34,33 +34,38 @@
         animation: captionPulse 4s cubic-bezier(.1,1,.1,1) infinite;
       }
       
+      .caption-text text {
+        font-size: 16px;
+        opacity: 1;
+      }
+      
       .emoji-1 {
-        animation: bubble 4s cubic-bezier(.2,1,.2,1) infinite;
+        animation: bubble 4s cubic-bezier(.1,1,.1,1) infinite;
         animation-delay: 0s;
       }
       
       .emoji-2 {
-        animation: bubble 4s cubic-bezier(.2,1,.2,1) infinite;
+        animation: bubble 4s cubic-bezier(.1,1,.1,1) infinite;
         animation-delay: 1.2s;
       }
       
       .emoji-3 {
-        animation: bubble 4s cubic-bezier(.2,1,.2,1) infinite;
+        animation: bubble 4s cubic-bezier(.1,1,.1,1) infinite;
         animation-delay: 2.4s;
       }
       
       .sub-1 {
-        animation: showup 4s cubic-bezier(.2,.9,.2,1) infinite;
+        animation: showup 4s cubic-bezier(.1,.9,.1,1) infinite;
         animation-delay: 0s;
       }
       
       .sub-2 {
-        animation: showup 4s cubic-bezier(.2,.9,.2,1) infinite;
+        animation: showup 4s cubic-bezier(.1,.9,.1,1) infinite;
         animation-delay: 1.2s;
       }
       
       .sub-3 {
-        animation: showup 4s cubic-bezier(.2,.9,.2,1) infinite;
+        animation: showup 4s cubic-bezier(.1,.9,.1,1) infinite;
         animation-delay: 2.4s;
       }
     
@@ -76,7 +81,7 @@
     
     @keyframes captionPulse {
       0%, 100% { transform: translateY(0); opacity: 1; }
-      30%, 90% { transform: translateY(-12px); opacity: 0.9; }
+      30%, 90% { transform: translateY(-12px); opacity: 0.5; }
     }
     
     @keyframes bubble {
@@ -85,19 +90,22 @@
     }
     
     @keyframes showup {
-      30% {transform: translateY(-4px); }
-      40% {transform: translateY(0);}
+      30% {transform: translateY(-6px); opacity:0.5}
+      40% {transform: translateY(0); opacity:1}
     }
     
     @keyframes sparkle {
-      0%, 100% {transform: translateY(0px); opacity : 1}
-      50% {transform: translateY(-4px); opacity: 0.5 }
-      90% {transform: translateY(0px); opacity : 0}
+      0%, 100% { transform: translateY(0px); opacity: 1; }
+      50% { transform: translateY(-4px); opacity: 0.5; }
+      90% { transform: translateY(0px); opacity: 0; }
     }
     
     .sparkle {
-      font-size: 16px;
       animation: sparkle 2s ease-in-out infinite;
+    }
+    
+    .sparkle text {
+      font-size: 16px;
     }
     
     .sparkle-1 { animation-delay: 0s; }
@@ -118,24 +126,46 @@
     </text>
     
     <!-- Sparkles around spongebob -->
-    <text x="490" y="35" class="base-text sparkle sparkle-1">✨</text>
-    <text x="530" y="35" class="base-text sparkle sparkle-2">✨</text>
-    <text x="485" y="65" class="base-text sparkle sparkle-3">✨</text>
-    <text x="535" y="65" class="base-text sparkle sparkle-4">✨</text>
+    <g class="sparkle sparkle-1">
+      <text x="490" y="35" class="base-text">✨</text>
+    </g>
+    <g class="sparkle sparkle-2">
+      <text x="530" y="35" class="base-text">✨</text>
+    </g>
+    <g class="sparkle sparkle-3">
+      <text x="485" y="65" class="base-text">✨</text>
+    </g>
+    <g class="sparkle sparkle-4">
+      <text x="535" y="65" class="base-text">✨</text>
+    </g>
     
     <!-- Caption -->
-    <text x="300" y="90" class="base-text caption-text">
-      Here are some of the things I am currently focusing on:
-    </text>
+    <g class="caption-text">
+      <text x="300" y="90" class="base-text">
+        Here are some of the things I am currently focusing on:
+      </text>
+    </g>
     
     <!-- Emojis -->
-    <text x="200" y="140" class="base-text emoji-text emoji-1">📚</text>
-    <text x="300" y="140" class="base-text emoji-text emoji-2">👨‍💻</text>
-    <text x="400" y="140" class="base-text emoji-text emoji-3">🤖</text>
+    <g class="emoji-1">
+      <text x="200" y="140" class="base-text emoji-text">📚</text>
+    </g>
+    <g class="emoji-2">
+      <text x="300" y="140" class="base-text emoji-text">👨‍💻</text>
+    </g>
+    <g class="emoji-3">
+      <text x="400" y="140" class="base-text emoji-text">🤖</text>
+    </g>
     
     <!-- Sub-labels -->
-    <text x="200" y="180" class="base-text sub-label sub-1">Learning</text>
-    <text x="300" y="180" class="base-text sub-label sub-2">Working</text>
-    <text x="400" y="180" class="base-text sub-label sub-3">Dreaming</text>
+    <g class="sub-1">
+      <text x="200" y="180" class="base-text sub-label">Learning</text>
+    </g>
+    <g class="sub-2">
+      <text x="300" y="180" class="base-text sub-label">Working</text>
+    </g>
+    <g class="sub-3">
+      <text x="400" y="180" class="base-text sub-label">Dreaming</text>
+    </g>
   </g>
 </svg>
