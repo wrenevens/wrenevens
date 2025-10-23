@@ -50,8 +50,8 @@
 
         /* === Caption animation === */
         :root {
-          --speed: 6s;
-          --gap: 1.6s;
+          --speed: 4s;
+          --gap: 1.2s;
         }
 
         .caption {
@@ -62,7 +62,7 @@
 
         @keyframes captionPulse {
           0%, 100%{ transform: translateY(0); opacity: 1; }
-          30%, 80%{ transform: translateY(-12px); opacity: 0.9}
+          30%, 90%{ transform: translateY(-12px); opacity: 0.9}
         }
 
         /* === Emoji bubble animation === */
