@@ -27,7 +27,6 @@
           align-items: center;
           justify-content: center;
           height: 230px;
-          background: white;
         }
 
         .mobile-content {
