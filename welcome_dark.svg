@@ -25,9 +25,12 @@
       }
       
       .wave-hand {
-        font-size : 30px;
         animation: wave 3.2s cubic-bezier(.1,1,.1,1) infinite;
-        transform-origin : top right 10px;
+        transform-origin: top right 10px;
+      }
+      
+      .wave-hand text {
+        font-size: 30px;
       }
       
       .caption-text {
@@ -121,9 +124,11 @@
     <text x="300" y="50" class="base-text main-title">
       Welcome to my profile 
     </text>
-    <text x="510" y="50" class="base-text emoji-text wave-hand">
-      🧽
-    </text>
+    <g class="wave-hand">
+      <text x="510" y="50" class="base-text emoji-text">
+        🧽
+      </text>
+    </g>
     
     <!-- Sparkles around spongebob -->
     <g class="sparkle sparkle-1">
